@@ -286,6 +286,11 @@ namespace Arduino
             ShowUserManagement();
         }
         
+        private void buttonMenuPongGame_Click(object sender, EventArgs e)
+        {
+            ShowPongGame();
+        }
+        
         
         // Helper Methods for showing different pages
         private void ShowDashboard()
@@ -689,6 +694,25 @@ namespace Arduino
             buttonMenuDashboard.BackColor = System.Drawing.Color.Transparent;
             buttonMenuArduino.BackColor = System.Drawing.Color.Transparent;
             buttonMenuUsers.BackColor = System.Drawing.Color.Transparent;
+            buttonMenuPongGame.BackColor = System.Drawing.Color.Transparent;
+        }
+        
+        private void ShowPongGame()
+        {
+            // Update page title
+            labelPageTitle.Text = "Pong Game";
+            
+            // Reset menu colors
+            ResetMenuColors();
+            buttonMenuPongGame.BackColor = System.Drawing.Color.FromArgb(33, 150, 243);
+            
+            // Clear content panel
+            panelContent.Controls.Clear();
+            
+            // Create and add Pong Game panel
+            var pongPanel = new PongGamePanel();
+            pongPanel.Location = new System.Drawing.Point(20, 20);
+            panelContent.Controls.Add(pongPanel);
         }
         
         // Add hover effects for menu buttons

@@ -16,6 +16,9 @@
 ### หน้าจัดการผู้ใช้
 ![User Management](Img/Usermangerment.PNG)
 
+### Pong Game
+![Pong Game](Img/PingPongGame.PNG)
+
 ## คุณสมบัติหลัก
 
 - 🔌 **ควบคุม Arduino** - เชื่อมต่อและควบคุม LED ผ่าน Serial Port
@@ -27,6 +30,7 @@
 - 📊 **User Management** - เพิ่ม/แก้ไข/ลบผู้ใช้ (Admin เท่านั้น)
 - 🔄 **ตรวจสอบการเชื่อมต่อ** - ตรวจสอบสถานะ Arduino ทุก 5 วินาที
 - 🖥️ **Modern UI** - หน้าจอแบบ Web-style พร้อม Sidebar และ Top Bar
+- 🎮 **Pong Game** - เกม Pong แบบผู้เล่นเดียวกับ Bot AI (UserControl พร้อม UI ในตัว)
 
 ## ข้อกำหนดระบบ
 
@@ -83,6 +87,11 @@ dotnet run
 4. **จัดการผู้ใช้** (Admin เท่านั้น)
    - คลิกเมนู User Management ใน Sidebar
    - เพิ่ม/แก้ไข/ลบผู้ใช้ผ่าน Interface แบบ embedded ในหน้าหลัก
+5. **เล่น Pong Game**
+   - คลิกเมนู Pong Game ใน Sidebar
+   - กด Start Game เพื่อเริ่มเล่น
+   - ใช้เมาส์หรือคีย์บอร์ด (W/S หรือลูกศรขึ้น/ลง) ควบคุม
+   - เก็บ 10 คะแนนเพื่อชนะ
 
 ### โค้ด Arduino ตัวอย่าง
 
@@ -110,7 +119,9 @@ void loop() {
 ```
 Arduino/
 ├── Forms/                    # Windows Forms
-│   └── LoginForm.cs         # หน้า Login
+│   ├── LoginForm.cs         # หน้า Login
+│   ├── PongGamePanel.cs     # Pong Game UserControl
+│   └── PongGamePanel.Designer.cs  # Pong Game Designer file
 ├── Models/                   # Data Models
 │   └── User.cs              # User model และ Roles
 ├── Services/                 # Business Logic

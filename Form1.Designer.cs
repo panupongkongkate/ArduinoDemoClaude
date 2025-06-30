@@ -21,6 +21,7 @@ namespace Arduino
             components = new System.ComponentModel.Container();
             connectionTimer = new System.Windows.Forms.Timer(components);
             panelSidebar = new Panel();
+            buttonMenuPongGame = new Button();
             buttonMenuUsers = new Button();
             buttonMenuArduino = new Button();
             buttonMenuDashboard = new Button();
@@ -45,6 +46,7 @@ namespace Arduino
             statusStrip1 = new StatusStrip();
             toolStripStatusLabelUser = new ToolStripStatusLabel();
             buttonUserManagement = new Button();
+            buttonMenuPongGame = new Button();
             panelSidebar.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTopBar.SuspendLayout();
@@ -64,6 +66,7 @@ namespace Arduino
             // panelSidebar
             // 
             panelSidebar.BackColor = Color.FromArgb(25, 30, 40);
+            panelSidebar.Controls.Add(buttonMenuPongGame);
             panelSidebar.Controls.Add(buttonMenuUsers);
             panelSidebar.Controls.Add(buttonMenuArduino);
             panelSidebar.Controls.Add(buttonMenuDashboard);
@@ -74,6 +77,26 @@ namespace Arduino
             panelSidebar.Name = "panelSidebar";
             panelSidebar.Size = new Size(251, 800);
             panelSidebar.TabIndex = 0;
+            // 
+            // buttonMenuPongGame
+            // 
+            buttonMenuPongGame.BackColor = Color.Transparent;
+            buttonMenuPongGame.Cursor = Cursors.Hand;
+            buttonMenuPongGame.Dock = DockStyle.Top;
+            buttonMenuPongGame.FlatAppearance.BorderSize = 0;
+            buttonMenuPongGame.FlatStyle = FlatStyle.Flat;
+            buttonMenuPongGame.Font = new Font("Segoe UI", 11F);
+            buttonMenuPongGame.ForeColor = Color.White;
+            buttonMenuPongGame.Location = new Point(0, 294);
+            buttonMenuPongGame.Margin = new Padding(3, 4, 3, 4);
+            buttonMenuPongGame.Name = "buttonMenuPongGame";
+            buttonMenuPongGame.Padding = new Padding(23, 0, 0, 0);
+            buttonMenuPongGame.Size = new Size(251, 67);
+            buttonMenuPongGame.TabIndex = 4;
+            buttonMenuPongGame.Text = "🎮 Pong Game";
+            buttonMenuPongGame.TextAlign = ContentAlignment.MiddleLeft;
+            buttonMenuPongGame.UseVisualStyleBackColor = false;
+            buttonMenuPongGame.Click += buttonMenuPongGame_Click;
             // 
             // buttonMenuUsers
             // 
@@ -447,6 +470,7 @@ namespace Arduino
         private System.Windows.Forms.Button buttonMenuDashboard;
         private System.Windows.Forms.Button buttonMenuArduino;
         private System.Windows.Forms.Button buttonMenuUsers;
+        private System.Windows.Forms.Button buttonMenuPongGame;
         
         // TopBar Elements
         private System.Windows.Forms.Label labelPageTitle;
