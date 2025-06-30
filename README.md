@@ -67,8 +67,8 @@ dotnet run
    - คลิกปุ่ม ON เพื่อเปิด LED
    - คลิกปุ่ม OFF เพื่อปิด LED
 4. **จัดการผู้ใช้** (Admin เท่านั้น)
-   - คลิกเมนู User Management
-   - เพิ่ม/แก้ไข/ลบผู้ใช้ตามต้องการ
+   - คลิกเมนู User Management ใน Sidebar
+   - เพิ่ม/แก้ไข/ลบผู้ใช้ผ่าน Interface แบบ embedded ในหน้าหลัก
 
 ### โค้ด Arduino ตัวอย่าง
 
@@ -96,14 +96,13 @@ void loop() {
 ```
 Arduino/
 ├── Forms/                    # Windows Forms
-│   ├── LoginForm.cs         # หน้า Login
-│   └── UserManagementForm.cs # หน้าจัดการผู้ใช้ (เก่า)
+│   └── LoginForm.cs         # หน้า Login
 ├── Models/                   # Data Models
 │   └── User.cs              # User model และ Roles
 ├── Services/                 # Business Logic
 │   ├── AuthenticationService.cs  # ระบบ Login/Logout
 │   └── DatabaseService.cs       # จัดการฐานข้อมูล SQLite
-├── Form1.cs                 # หน้าหลักของโปรแกรม
+├── Form1.cs                 # หน้าหลัก (รวม User Management แบบ embedded)
 ├── Program.cs               # Entry point
 ├── Arduino.csproj           # Project file
 └── appsettings.json         # Configuration
