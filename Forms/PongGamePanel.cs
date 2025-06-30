@@ -10,17 +10,12 @@ namespace Arduino.Forms
         private Rectangle playerPaddle, botPaddle, ball;
         private int ballSpeedX = 5, ballSpeedY = 5;
         private int playerScore = 0, botScore = 0;
-        private System.Windows.Forms.Timer gameTimer;
         private bool gameRunning = false;
         private Random random = new Random();
         
         // Bot AI
         private int botSpeed = 6;
         
-        // Controls
-        private Label lblScore;
-        private Button btnStart;
-        private Panel gamePanel;
 
         public PongGamePanel()
         {
@@ -28,110 +23,6 @@ namespace Arduino.Forms
             InitializeGame();
         }
 
-        private void InitializeComponent()
-        {
-            this.Size = new Size(850, 600);
-            this.BackColor = Color.FromArgb(245, 245, 245);
-
-            // Create container panel for better organization
-            var headerPanel = new Panel
-            {
-                Location = new Point(0, 0),
-                Size = new Size(850, 50),
-                BackColor = Color.White,
-                BorderStyle = BorderStyle.FixedSingle
-            };
-            this.Controls.Add(headerPanel);
-            
-            // Title Label
-            var titleLabel = new Label
-            {
-                Text = "🎮 Pong Game - Player vs Bot",
-                Location = new Point(10, 10),
-                Size = new Size(300, 30),
-                Font = new Font("Segoe UI", 14F, FontStyle.Bold),
-                ForeColor = Color.FromArgb(25, 30, 40)
-            };
-            headerPanel.Controls.Add(titleLabel);
-            
-            // Score Label
-            lblScore = new Label
-            {
-                Location = new Point(350, 10),
-                Size = new Size(150, 30),
-                ForeColor = Color.FromArgb(25, 30, 40),
-                Font = new Font("Segoe UI", 16, FontStyle.Bold),
-                TextAlign = ContentAlignment.MiddleCenter,
-                Text = "0 - 0",
-                BackColor = Color.Transparent
-            };
-            headerPanel.Controls.Add(lblScore);
-
-            // Control Panel
-            var controlPanel = new Panel
-            {
-                Location = new Point(0, 520),
-                Size = new Size(850, 80),
-                BackColor = Color.White,
-                BorderStyle = BorderStyle.FixedSingle
-            };
-            this.Controls.Add(controlPanel);
-            
-            // Start Button
-            btnStart = new Button
-            {
-                Location = new Point(375, 25),
-                Size = new Size(100, 35),
-                Text = "Start Game",
-                BackColor = Color.FromArgb(76, 175, 80),
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat,
-                Font = new Font("Segoe UI", 10F, FontStyle.Bold),
-                Cursor = Cursors.Hand
-            };
-            btnStart.FlatAppearance.BorderSize = 0;
-            btnStart.Click += BtnStart_Click;
-            controlPanel.Controls.Add(btnStart);
-            
-            // Instructions Label
-            var instructionsLabel = new Label
-            {
-                Text = "ควบคุม: เมาส์ | W/S | ↑/↓ | ผู้เล่น: สีเขียว | Bot: สีส้ม | เป้าหมาย: 10 คะแนน",
-                Location = new Point(150, 60),
-                Size = new Size(550, 20),
-                Font = new Font("Segoe UI", 9F),
-                ForeColor = Color.FromArgb(100, 100, 100),
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-            controlPanel.Controls.Add(instructionsLabel);
-
-            // Game Panel with border
-            var gameContainer = new Panel
-            {
-                Location = new Point(75, 60),
-                Size = new Size(700, 450),
-                BackColor = Color.FromArgb(240, 240, 240),
-                Padding = new Padding(5)
-            };
-            this.Controls.Add(gameContainer);
-            
-            gamePanel = new Panel
-            {
-                Dock = DockStyle.Fill,
-                BackColor = Color.Black,
-                BorderStyle = BorderStyle.None
-            };
-            gamePanel.Paint += GamePanel_Paint;
-            gameContainer.Controls.Add(gamePanel);
-
-            // Timer
-            gameTimer = new System.Windows.Forms.Timer();
-            gameTimer.Interval = 20;
-            gameTimer.Tick += GameTimer_Tick;
-
-            // Mouse events for player control
-            gamePanel.MouseMove += GamePanel_MouseMove;
-        }
 
         private void InitializeGame()
         {
